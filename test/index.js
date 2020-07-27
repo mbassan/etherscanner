@@ -3,9 +3,7 @@ const Web3 = require('web3');
 const EtherScanner = require('../index');
 
 // ropsten testnet
-let web3Provider = new Web3('ws://localhost:8332').currentProvider;
-
-let etherScanner = EtherScanner(web3Provider, 'trace');
+let etherScanner = EtherScanner(new Web3('ws://localhost:8332'), 'trace');
 
 describe('ScanTransaction with preinstalled txs', function() {
 
