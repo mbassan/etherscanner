@@ -11,7 +11,7 @@ class EtherScanner {
 	constructor(web3, loggerLevel = 'OFF') {
 		logger.level = loggerLevel;
 		this.requestId = 1;
-		this.node = new Geth(this.web3);
+		this.node = new Geth(web3);
 	}
 }
 
