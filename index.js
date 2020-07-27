@@ -16,7 +16,12 @@ class EtherScanner {
 }
 
 module.exports = (HttpProvider, loggerLevel) => {
-	return new EtherScanner(HttpProvider, loggerLevel);
+	let scanner = new EtherScanner(HttpProvider, loggerLevel);
+
+	return {
+		scanBlock: scanner.node.scanBlock.bind(scanner.node),
+		scanTransaction: scanner.node.scanTransaction.bind(scanner.node),
+	}
 };
 
 /**
