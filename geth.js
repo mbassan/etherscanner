@@ -1,6 +1,5 @@
 const logger = require('log4js').getLogger('etherscanner');
 const async = require('async');
-const fs = require('fs');
 const BigNumber = require('bignumber.js');
 
 class Geth {
@@ -92,7 +91,7 @@ class Geth {
 			},
 			(blockNumber, cb) => {
 				this.requestId++;
-				return this.web3.currentProvider.sendAsync({
+				return this.web3.currentProvider.send({
 					method: "debug_traceTransaction",
 					params: [txHash, { tracer: "callTracer", reexec: txBlockNumber ? (blockNumber - txBlockNumber + 20) : 200, timeout: "60s"}],
 					jsonrpc: "2.0",

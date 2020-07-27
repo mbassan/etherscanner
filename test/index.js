@@ -3,7 +3,7 @@ const Web3 = require('web3');
 const EtherScanner = require('../index');
 
 // ropsten testnet
-let web3Provider = new Web3.providers.HttpProvider(`https://parity-ropsten.pixelplex.io`);
+let web3Provider = new Web3('ws://localhost:8332').currentProvider;
 
 let etherScanner = EtherScanner(web3Provider, 'trace');
 
